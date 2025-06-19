@@ -69,8 +69,8 @@ function updateUI() {
     if (validateInput(data)) {
         const tipAmount = calculateTip();
         const total = calculateTotal(tipAmount);
-        tipAmountText.textContent = tipAmount.toFixed(2);
-        totalText.textContent = total.toFixed(2);
+        tipAmountText.textContent = `$${tipAmount.toFixed(2)}`;
+        totalText.textContent = `$${total.toFixed(2)}`;
         resetButton.disabled = false;
     } else {
         tipAmountText.textContent = '$0.00';

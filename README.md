@@ -32,7 +32,7 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
+- Solution URL: [https://www.frontendmentor.io/solutions/responsive-tip-calculator-Tbu6THowAX](https://www.frontendmentor.io/solutions/responsive-tip-calculator-Tbu6THowAX)
 - Live Site URL: [https://fr-ux-en.github.io/tip-calculator/](https://fr-ux-en.github.io/tip-calculator/)
 
 ## My process

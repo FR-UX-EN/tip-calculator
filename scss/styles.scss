@@ -1,0 +1,313 @@
+@use './reset.scss';
+
+// Widths
+$mobile-width: 375px;
+$desktop-width: 1440px;
+
+// Colors
+// Primary
+$green-400: hsl(172, 67%, 45%);
+
+// Neutral
+$green-900: hsl(183, 100%, 15%);
+$grey-500: hsl(186, 14%, 43%);
+$grey-400: hsl(184, 14%, 56%);
+$grey-200: hsl(185, 41%, 84%);
+$grey-50: hsl(189, 47%, 97%);
+$white: hsl(0, 100%, 100%);
+
+// Typography
+// Font size
+$font-size-input: 24px;
+
+// Font
+$font-family: 'Space Mono', monospace;
+$font-weight: 700;
+
+@function rem($px) {
+  @return calc($px / 16px) * 1rem;
+}
+
+@mixin desktop {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: $font-family;
+  font-weight: $font-weight;
+  background-color: $grey-200;
+  color: $green-900;
+  font-size: rem(16px);
+  line-height: 1.5;
+  min-height: 100vh;
+  margin: 0;
+}
+
+.logo {
+  margin: 2.5rem 0;
+}
+
+.calculator-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  background-color: $white;
+  padding: rem(32px);
+  border-radius: rem(24px);
+
+  @include desktop {
+    width: 90%;
+    max-width: 1000px;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+}
+
+.top-label {
+  font-size: rem(16px);
+  color: $grey-500;
+}
+
+.bill-input {
+  position: relative;
+
+  input {
+    width: 100%;
+    padding: rem(10px) rem(16px);
+    margin-top: rem(8px);
+    border: none;
+    border-radius: rem(4px);
+    text-align: right;
+    background-color: $grey-50;
+    color: $green-900;
+    font-size: $font-size-input;
+    font-weight: $font-weight;
+    font-family: $font-family;
+    outline: none;
+
+    &::placeholder {
+      color: $grey-400;
+    }
+
+    &:focus {
+      outline: 2px solid $green-400;
+    }
+  }
+
+  .dollar-icon {
+    position: absolute;
+    top: 50%;
+    left: 16px;
+    transform: translateY(-50%);
+  }
+}
+
+// Remove arrows from number input
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+.tip {
+  margin: 2rem 0;
+}
+
+.tip-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+
+  @include desktop {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  label {
+    display: block;
+    text-align: center;
+    width: 100%;
+    padding: 0.6rem 1rem;
+    border-radius: rem(4px);
+    background-color: $green-900;
+    color: $white;
+    font-size: $font-size-input;
+    font-weight: $font-weight;
+  }
+
+  #tip-custom {
+    display: block;
+    width: 100%;
+    padding: 1rem;
+    border-radius: rem(4px);
+    border: none;
+    background-color: $grey-50;
+    color: $green-900;
+    font-size: $font-size-input;
+    text-align: right;
+
+    &::placeholder {
+      color: $grey-400;
+    }
+
+    &:focus {
+      outline: 2px solid $green-400;
+    }
+  }
+}
+
+input[type='radio'] {
+  display: none;
+
+  &:checked + label {
+    background-color: $green-400;
+    color: $green-900;
+  }
+}
+
+.people-input {
+  position: relative;
+
+  input {
+    width: 100%;
+    padding: rem(10px) rem(16px);
+    margin-top: rem(8px);
+    border: none;
+    border-radius: rem(4px);
+    text-align: right;
+    background-color: $grey-50;
+    color: $green-900;
+    font-size: $font-size-input;
+    font-weight: $font-weight;
+    font-family: $font-family;
+    outline: none;
+
+    &::placeholder {
+      color: $grey-400;
+    }
+
+    &:focus {
+      outline: 2px solid $green-400;
+    }
+  }
+
+  img {
+    position: absolute;
+    top: 50%;
+    left: 16px;
+    transform: translateY(-50%);
+  }
+}
+
+.results-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin-top: 1rem;
+  background-color: $green-900;
+  padding: 1.5rem;
+  border-radius: rem(16px);
+
+  @include desktop {
+    grid-template-rows: 1fr;
+    align-items: start;
+    gap: 0;
+    margin-top: 0;
+    padding-top: 3rem;
+  }
+}
+
+.result-tip-amount-total-container {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  gap: 1rem;
+
+  .result-tip-amount {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    &-title {
+      padding: 0.2rem 0;
+    }
+  }
+
+  .result-total {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    &-title {
+      padding: 0.2rem 0;
+    }
+  }
+
+  h2 {
+    color: $green-400;
+    font-size: 1.6rem;
+    font-weight: $font-weight;
+    margin: 0;
+  }
+
+  h3 {
+    color: $white;
+    font-size: 1rem;
+    font-weight: $font-weight;
+    margin: 0;
+  }
+
+  p {
+    color: $grey-400;
+    font-size: 0.8rem;
+    font-weight: $font-weight;
+    margin: 0.2rem;
+  }
+}
+
+.reset-button {
+  width: 100%;
+  padding: 0.6rem 1rem;
+  border-radius: rem(4px);
+  background-color: $green-400;
+  color: $green-900;
+  font-size: 1.2rem;
+  font-weight: $font-weight;
+  border: none;
+
+  &:disabled {
+    background-color: $grey-500;
+    color: $green-900;
+  }
+}
+
+.people-title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.error-message {
+  color: orangered;
+  margin: 0;
+  font-size: 1rem;
+  font-weight: $font-weight;
+  visibility: hidden;
+}
+
+.active {
+  visibility: visible;
+}

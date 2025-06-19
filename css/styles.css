@@ -1,0 +1,351 @@
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Prevent font size inflation */
+html {
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+}
+
+/* Remove default margin in favour of better control in authored CSS */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin-block-end: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role=list],
+ol[role=list] {
+  list-style: none;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  line-height: 1.5;
+}
+
+/* Set shorter line heights on headings and interactive elements */
+h1,
+h2,
+h3,
+h4,
+button,
+input,
+label {
+  line-height: 1.1;
+}
+
+/* Balance text wrapping on headings */
+h1,
+h2,
+h3,
+h4 {
+  text-wrap: balance;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+  color: currentColor;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+/* Make sure textareas without a rows attribute are not tiny */
+textarea:not([rows]) {
+  min-height: 10em;
+}
+
+/* Anything that has been anchored to should have extra scroll margin */
+:target {
+  scroll-margin-block: 5ex;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: "Space Mono", monospace;
+  font-weight: 700;
+  background-color: hsl(185, 41%, 84%);
+  color: hsl(183, 100%, 15%);
+  font-size: 1rem;
+  line-height: 1.5;
+  min-height: 100vh;
+  margin: 0;
+}
+
+.logo {
+  margin: 2.5rem 0;
+}
+
+.calculator-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  background-color: hsl(0, 100%, 100%);
+  padding: 2rem;
+  border-radius: 1.5rem;
+}
+@media (min-width: 768px) {
+  .calculator-container {
+    width: 90%;
+    max-width: 1000px;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+}
+
+.top-label {
+  font-size: 1rem;
+  color: hsl(186, 14%, 43%);
+}
+
+.bill-input {
+  position: relative;
+}
+.bill-input input {
+  width: 100%;
+  padding: 0.625rem 1rem;
+  margin-top: 0.5rem;
+  border: none;
+  border-radius: 0.25rem;
+  text-align: right;
+  background-color: hsl(189, 47%, 97%);
+  color: hsl(183, 100%, 15%);
+  font-size: 24px;
+  font-weight: 700;
+  font-family: "Space Mono", monospace;
+  outline: none;
+}
+.bill-input input::placeholder {
+  color: hsl(184, 14%, 56%);
+}
+.bill-input input:focus {
+  outline: 2px solid hsl(172, 67%, 45%);
+}
+.bill-input .dollar-icon {
+  position: absolute;
+  top: 50%;
+  left: 16px;
+  transform: translateY(-50%);
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+.tip {
+  margin: 2rem 0;
+}
+
+.tip-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+@media (min-width: 768px) {
+  .tip-buttons {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+.tip-buttons label {
+  display: block;
+  text-align: center;
+  width: 100%;
+  padding: 0.6rem 1rem;
+  border-radius: 0.25rem;
+  background-color: hsl(183, 100%, 15%);
+  color: hsl(0, 100%, 100%);
+  font-size: 24px;
+  font-weight: 700;
+}
+.tip-buttons #tip-custom {
+  display: block;
+  width: 100%;
+  padding: 1rem;
+  border-radius: 0.25rem;
+  border: none;
+  background-color: hsl(189, 47%, 97%);
+  color: hsl(183, 100%, 15%);
+  font-size: 24px;
+  text-align: right;
+}
+.tip-buttons #tip-custom::placeholder {
+  color: hsl(184, 14%, 56%);
+}
+.tip-buttons #tip-custom:focus {
+  outline: 2px solid hsl(172, 67%, 45%);
+}
+
+input[type=radio] {
+  display: none;
+}
+input[type=radio]:checked + label {
+  background-color: hsl(172, 67%, 45%);
+  color: hsl(183, 100%, 15%);
+}
+
+.people-input {
+  position: relative;
+}
+.people-input input {
+  width: 100%;
+  padding: 0.625rem 1rem;
+  margin-top: 0.5rem;
+  border: none;
+  border-radius: 0.25rem;
+  text-align: right;
+  background-color: hsl(189, 47%, 97%);
+  color: hsl(183, 100%, 15%);
+  font-size: 24px;
+  font-weight: 700;
+  font-family: "Space Mono", monospace;
+  outline: none;
+}
+.people-input input::placeholder {
+  color: hsl(184, 14%, 56%);
+}
+.people-input input:focus {
+  outline: 2px solid hsl(172, 67%, 45%);
+}
+.people-input img {
+  position: absolute;
+  top: 50%;
+  left: 16px;
+  transform: translateY(-50%);
+}
+
+.results-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin-top: 1rem;
+  background-color: hsl(183, 100%, 15%);
+  padding: 1.5rem;
+  border-radius: 1rem;
+}
+@media (min-width: 768px) {
+  .results-container {
+    grid-template-rows: 1fr;
+    align-items: start;
+    gap: 0;
+    margin-top: 0;
+    padding-top: 3rem;
+  }
+}
+
+.result-tip-amount-total-container {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  gap: 1rem;
+}
+.result-tip-amount-total-container .result-tip-amount {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.result-tip-amount-total-container .result-tip-amount-title {
+  padding: 0.2rem 0;
+}
+.result-tip-amount-total-container .result-total {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.result-tip-amount-total-container .result-total-title {
+  padding: 0.2rem 0;
+}
+.result-tip-amount-total-container h2 {
+  color: hsl(172, 67%, 45%);
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin: 0;
+}
+.result-tip-amount-total-container h3 {
+  color: hsl(0, 100%, 100%);
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 0;
+}
+.result-tip-amount-total-container p {
+  color: hsl(184, 14%, 56%);
+  font-size: 0.8rem;
+  font-weight: 700;
+  margin: 0.2rem;
+}
+
+.reset-button {
+  width: 100%;
+  padding: 0.6rem 1rem;
+  border-radius: 0.25rem;
+  background-color: hsl(172, 67%, 45%);
+  color: hsl(183, 100%, 15%);
+  font-size: 1.2rem;
+  font-weight: 700;
+  border: none;
+}
+.reset-button:disabled {
+  background-color: hsl(186, 14%, 43%);
+  color: hsl(183, 100%, 15%);
+}
+
+.people-title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.error-message {
+  color: orangered;
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 700;
+  visibility: hidden;
+}
+
+.active {
+  visibility: visible;
+}
+
+/*# sourceMappingURL=styles.css.map */
